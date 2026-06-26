@@ -1,62 +1,54 @@
-# Spam_Email_Classifier
-A machine learning project that classifies emails as **spam** or **ham (not spam)** using Natural Language Processing (NLP) and a **Naive Bayes** classifier.   The project includes a dataset (`emails.csv`), exploratory analysis, preprocessing, model training, and evaluation.
+# Spam Email Classifier
 
-## Dataset
-
-This repository **includes the dataset** used to train and test the model:
-
-- **emails.csv**
-- Columns:
-  - `text` → the email message
-  - `spam` → label  
-    - **1 = spam**  
-    - **0 = ham**
-
-The dataset is provided for learning and demonstration purposes.
-
----
+An NLP classification project that detects whether an email is spam or ham using text preprocessing, vectorization, and a Multinomial Naive Bayes classifier.
 
 ## Project Overview
 
-This project demonstrates a complete text-classification workflow:
+This project demonstrates a complete text-classification workflow: dataset exploration, preprocessing, Bag-of-Words vectorization, model training, and evaluation with standard classification metrics.
 
-- Load and explore a dataset of email messages  
-- Visualize spam vs ham distribution  
-- Convert text to numerical features (Bag-of-Words)  
-- Train a **Multinomial Naive Bayes** classifier  
-- Evaluate performance using confusion matrices and classification metrics  
+## Dataset
 
-The project is implemented in a Jupyter Notebook for clear step-by-step explanation.
+The repository includes `emails.csv` for learning and demonstration purposes.
 
----
+| Column | Description |
+|---|---|
+| `text` | Email message content |
+| `spam` | Target label: `1` = spam, `0` = ham |
 
-##  Technologies Used
+## Tech Stack
 
-- **Python**
-- **Pandas**, **NumPy**
-- **Scikit-learn**
-- **Matplotlib**, **Seaborn**
-- **Jupyter Notebook**
+- Python
+- Pandas, NumPy
+- Scikit-learn
+- Matplotlib, Seaborn
+- Jupyter Notebook
 
----
+## Methodology
 
-##  Methodology
+1. Load and inspect the email dataset.
+2. Explore class distribution between spam and ham messages.
+3. Transform raw email text into numerical features with `CountVectorizer`.
+4. Train a Multinomial Naive Bayes classifier.
+5. Evaluate predictions using accuracy, precision, recall, F1-score, and a confusion matrix.
 
-### **1. Exploratory Data Analysis**
-- View basic statistics  
-- Check dataset shape and structure  
-- Calculate spam/ham percentages  
+## Why Naive Bayes?
 
-### **2. Preprocessing & Vectorization**
-- Convert raw email text into numerical features  
-- Use **CountVectorizer** (Bag-of-Words)  
-- Train/test split for evaluation
+Multinomial Naive Bayes is a strong baseline for text classification because it works well with word-count features and is fast to train. This makes it useful for spam filtering, sentiment analysis, and other document classification tasks.
 
-### **3. Model Training**
-- Train a **Multinomial Naive Bayes** classifier  
-- Predict on training and test sets  
+## How to Run
 
-### **4. Evaluation**
-- Confusion matrix heatmaps  
-- Accuracy  
-- Precision, Recall, F1-Score  
+```bash
+git clone https://github.com/marcelngoyi90/Spam_Email_Classifier.git
+cd Spam_Email_Classifier
+pip install pandas numpy scikit-learn matplotlib seaborn jupyter
+jupyter notebook
+```
+
+Open the notebook and run the cells from top to bottom.
+
+## Future Improvements
+
+- Compare Bag-of-Words with TF-IDF features.
+- Add a simple Streamlit demo for email classification.
+- Save the trained model and vectorizer for reuse.
+- Add tests for the text preprocessing pipeline.
